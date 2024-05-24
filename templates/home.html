@@ -2,9 +2,127 @@
 
 {% block title %}Home | Hotel Management System{% endblock title %}
 {% block content %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 <main class="p-3">
     <h1 class="text-3xl">Welcome {{user}}</h1>
 </main>
+
+
+<section class="search-container mb-5 pb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="row my-3">
+
+                </div>
+                <div class="row mt-2 justify-content-between">
+                    <div class="filter-card">
+                        <h5>Filter</h5>
+                        <form action="#">
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <label for="mintopay">Check in</label>
+                                    <p>
+                                        <input type="date" name="checkin" id="checkin" class="form-control">
+                                    </p>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="maxtopay">Check out</label>
+                                    <p>
+                                        <input type="date" name="checkout" id="checkout" class="form-control">
+                                    </p>
+                                </div>
+                            </div>
+                           
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <input type="submit" class="btn btn-primary btn-block" value="Limit">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-lg-9  px-4 mb-5">
+                <form class="">
+                <div class=" d-flex mt-3 row justify-content-between">
+                    <div class="col-md-4">
+                    <div class="form-inline">
+                        <label class="" for="exampleFormControlSelect1">Sort by</label>
+                        <select class="form-control" name="sort_by" id="exampleFormControlSelect1">
+                            <option value="">Recommended</option>
+                            <option  value="ASC">ASC</option>
+                            <option  value="DSC">DSC</option>
+                           
+                        </select>
+                    </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-inline">
+                            <label class="" for="exampleFormControlSelect1">Search</label>
+                            <input name="search" class="form-control" value="" placeholder="Search"> 
+                        </div>
+
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-inline">
+                           <label class="" for="exampleFormControlSelect1">Facilities</label>
+                            <select name="amenities" class="form-control" multiple>
+                                {% for f in facility %}
+                                
+                                <option value="">{{f.facility_name}}</option>
+                                {% endfor %}
+                            
+                            <option value=""></option>
+                               
+                        </select>
+                        </div>
+
+                    </div>
+                    <div class="col-md-4">
+                            <button style="margin-top: 30px;" type="submit" class="btn btn-success">Find</button>
+                        </div>
+                </div>
+                </form>
+                
+               
+                <div class="row  mt-3 search-card-result">
+                
+
+                    
+                    <div class="col-md-3  w-100">
+                    
+                        {% for h in hotels  %}
+                        
+                        
+                        <div class="col-md-5 shadow p-3 mb-5 bg-white rounded w-100">
+                            <h5>{{h.hotel_name}}</h5>
+                            
+                            <p>
+                                {{h.description | truncatewords:30}}
+                            </p>
+                            <p>
+                                
+                                <b> Rs.{{h.hotel_price}}</b>
+                                
+                            </p>
+                            <div class="btn btn-success">View deal </div>
+                            
+                        </div>
+                        {% endfor %}
+                    
+                </div>
+                
+               
+            </div>
+        </div>
+
+    </div>
+</section>
 
 {% endblock content %}
 

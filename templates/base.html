@@ -55,6 +55,7 @@ data-twe-navbar-ref>
           aria-current="page"
           href="{% url "home" %}"
           data-twe-nav-link-ref
+          style="text-decoration: none; color: white;"
           >Hotel Management System</a
         >
       </li>
@@ -68,14 +69,15 @@ data-twe-navbar-ref>
       type="button"
       data-twe-ripple-init
       data-twe-ripple-color="light"
+      
       class="me-3 inline-block rounded bg-green-700 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-green-600 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong">
-      <a href="{% url "signup" %}">Signup</a>
+      <a href="{% url "signup" %}" style="text-decoration: none; color: white;">Signup</a>
       <button
         type="button"
         data-twe-ripple-init
         data-twe-ripple-color="light"
         class="me-3 inline-block bg-orange-600 text-white rounded px-2 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary hover:bg-orange-800 focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700 dark:text-secondary-600 dark:hover:text-secondary-500 dark:focus:text-secondary-500 dark:active:text-secondary-500">
-        <a href="{% url "login" %}"> Login</a>
+        <a href="{% url "login" %}" style="text-decoration: none; color: white;"> Login</a>
       </button>
     </button>
       {% endif %}
@@ -86,7 +88,7 @@ data-twe-navbar-ref>
       data-twe-ripple-init
       data-twe-ripple-color="light"
       class="me-3 inline-block rounded bg-red-700 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-red-800 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong">
-      <a href="{% url "logout" %}">Logout</a>
+      <a href="{% url "logout" %}" style="text-decoration: none; color: white;">Logout</a>
     </button>
     {% endif %}
       <button

@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
+from .models import Hotel,HotelBooking,Facility
 
 # Create your views here.
 def signup(request):
@@ -29,8 +30,15 @@ def log(request):
 
 @login_required
 def home(request):
+    myfac = Facility.objects.all()
+    myhotel = Hotel.objects.all()
     user = request.user
-    return render(request,'home.html',{'user':user})
+    data={
+        'user':user,
+        'facility':myfac,
+        'hotels':myhotel
+    }
+    return render(request,'home.html',data)
 
 
 def out(request):
