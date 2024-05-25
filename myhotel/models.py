@@ -28,5 +28,6 @@ class HotelBooking(BaseModel):
     end_date = models.DateField()
     booking_type=models.CharField(choices=(('Pre Paid','Pre Paid'),('Post Paid','Post Paid')), max_length=100)    
 
-
+    def __str__(self):
+        return self.hotels.hotel_name
     
